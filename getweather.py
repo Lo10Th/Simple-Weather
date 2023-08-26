@@ -23,6 +23,3 @@ def weather_data_rain_True(city, request_hours):
         if weather_type == "Rain":
             return True
     return False
-
-    
-print(weather_data_rain_True("Wuppertal", 4))
