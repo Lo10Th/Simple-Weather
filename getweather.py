@@ -18,10 +18,11 @@ def weather_data_rain_True(city, request_hours):
     if not response.status_code == 200:
         raise Exception("API request unsuccessful.")
     response = response.json()
-    weather_type = response["list"][request_hours]["weather"][request_hours]["main"]
-    if weather_type == "Rain":
-        return True
-    else:
-        return False
+    if request_hours < len(response["list"]):
+        weather_type = response["list"][request_hours]["weather"][0]["main"]
+        if weather_type == "Rain":
+            return True
+    return False
+
     
-print(weather_data_rain_True("London", 2))
+print(weather_data_rain_True("Wuppertal", 4))
