@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded and parsed.");
+            if ("geolocation" in navigator) {
+                console.log("Geolocation is available.");
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    console.log("Geolocation request successful.");
+                    var latitude = position.coords.latitude;
+                    var longitude = position.coords.longitude;
+
+                    var requestData = { latitude: latitude, longitude: longitude };
+                    console.log("Daten, die an den Server gesendet werden:", requestData);
+
+                    fetch("/1", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(requestData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Daten vom Server:", data);
+
+                        var weatherText = data.weather || "No weather data available.";
+                        document.getElementById("weatherText").textContent = weatherText;
+                    })
+                    .catch(error => {
+                        console.error("Fehler beim Empfangen der Daten:", error); // Hier wird ein Fehler in der Konsole angezeigt, falls aufgetreten.
+                    });
+                });
+            } else {
+                alert("Geolocation is not available in this browser.");
+            }
+        });        
+    </script>
+</head>
+<body>
+    <h1 id="weatherText">
+        Hello, world!
+    </h1>
+</body>
+</html>
