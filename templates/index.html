@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Simple Weather</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                <a class="nav-link" href="/1">Next hour</a>
+                <a class="nav-link" href="/2">Next 2 hours</a>
+                <a class="nav-link" href="/3">Next 3 hours</a>
+                <a class="nav-link" href="/4">Next 4 hours</a>
+            </div>
+          </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        <div class="d-flex justify-content-between">
+            <button type="button" onclick="window.location.href = '/1';" class="btn btn-primary">Next hour</button>
+            <button type="button" onclick="window.location.href = '/2';" class="btn btn-primary btn-margin">Next 2 hours</button>
+            <button type="button" onclick="window.location.href = '/3';" class="btn btn-primary btn-margin">Next 3 hours</button>
+            <button type="button" onclick="window.location.href = '/4';" class="btn btn-primary btn-margin">Next 4 hours</button>
+        </div>
+    </div>
+</body>
+</html>
