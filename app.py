@@ -4,7 +4,6 @@ from getcityname import get_city_name
 
 app = Flask(__name__)
 
-# Initialisiere die globalen Variablen für Latitude und Longitude
 latitude = None
 longitude = None
 
@@ -34,7 +33,6 @@ def onehour():
         city_name = get_city_name(float(longitude), float(latitude))
         weather = weather_data_rain_True(city_name, 1)
     else:
-        # Wenn keine Geodaten verfügbar sind, setze das Wetter auf einen Standardwert
         weather = {"message": "No location data available."}
 
     return render_template('showweather.html', weather=weather)
