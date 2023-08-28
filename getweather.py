@@ -1,3 +1,5 @@
+# getweather.py
+
 import requests
 from dotenv import load_dotenv
 import os
@@ -16,8 +18,10 @@ def weather_data_rain_True(city, request_hours):
     response = requests.get(url)
     if not response.status_code == 200:
         raise Exception("API request unsuccessful.")
+    
     response = response.json()
-    if request_hours < len(response["list"]):
+    
+    if "list" in response and request_hours < len(response["list"]) and "weather" in response["list"][request_hours]:
         weather_type = response["list"][request_hours]["weather"][0]["main"]
         if weather_type == "Rain":
             return True

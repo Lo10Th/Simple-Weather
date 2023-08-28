@@ -15,7 +15,7 @@ def index():
 def onehour():
     global latitude, longitude
 
-    if request.method == 'POST': 
+    if request.method == 'POST':
         data = request.get_json()
         latitude = data.get('latitude')
         longitude = data.get('longitude')
@@ -24,7 +24,6 @@ def onehour():
             return jsonify({"error": "Location data is missing."})
 
         city_name = get_city_name(latitude, longitude)
-        print(city_name)
         weather = weather_data_rain_True(city_name, 1)
 
         return jsonify({"weather": weather})
