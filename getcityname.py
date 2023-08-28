@@ -13,6 +13,7 @@ def get_city_name(long, lat):
         raise Exception("API request unsuccessful.")
     
     data = response.json()
-    return data['results'][0]['address_components'][3]["long_name"]
-
-config()
+    
+    if "results" in data and len(data['results']) > 0 and "address_components" in data['results'][0] and len(data['results'][0]["address_components"]) > 3:
+        return data['results'][0]['address_components'][3]["long_name"]
+    return ""
