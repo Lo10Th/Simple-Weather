@@ -36,5 +36,84 @@ def onehour():
 
     return render_template('showweather.html', weather=weather)
 
+#do the same for 2 hours
+@app.route('/2', methods=['POST', 'GET'])
+def twohours():
+    global latitude, longitude
+
+    if request.method == 'POST':
+        data = request.get_json()
+        latitude = data.get('latitude')
+        longitude = data.get('longitude')
+
+        if latitude is None or longitude is None:
+            return jsonify({"error": "Location data is missing."})
+
+        city_name = get_city_name(latitude, longitude)
+        weather = weather_data_rain_True(city_name, 2)
+
+        return jsonify({"weather": weather})
+    
+    if latitude is not None and longitude is not None:
+        city_name = get_city_name(float(longitude), float(latitude))
+        weather = weather_data_rain_True(city_name, 2)
+    else:
+        weather = {"message": "No location data available."}
+
+    return render_template('showweather.html', weather=weather)
+
+#do the same for 3 hours
+@app.route('/3', methods=['POST', 'GET'])
+def threehours():
+    global latitude, longitude
+
+    if request.method == 'POST':
+        data = request.get_json()
+        latitude = data.get('latitude')
+        longitude = data.get('longitude')
+
+        if latitude is None or longitude is None:
+            return jsonify({"error": "Location data is missing."})
+
+        city_name = get_city_name(latitude, longitude)
+        weather = weather_data_rain_True(city_name, 3)
+
+        return jsonify({"weather": weather})
+    
+    if latitude is not None and longitude is not None:
+        city_name = get_city_name(float(longitude), float(latitude))
+        weather = weather_data_rain_True(city_name, 3)
+    else:
+        weather = {"message": "No location data available."}
+
+    return render_template('showweather.html', weather=weather)
+
+#do the same for 4 hours
+@app.route('/4', methods=['POST', 'GET'])
+def fourhours():
+    global latitude, longitude
+
+    if request.method == 'POST':
+        data = request.get_json()
+        latitude = data.get('latitude')
+        longitude = data.get('longitude')
+
+        if latitude is None or longitude is None:
+            return jsonify({"error": "Location data is missing."})
+
+        city_name = get_city_name(latitude, longitude)
+        weather = weather_data_rain_True(city_name, 4)
+
+        return jsonify({"weather": weather})
+    
+    if latitude is not None and longitude is not None:
+        city_name = get_city_name(float(longitude), float(latitude))
+        weather = weather_data_rain_True(city_name, 4)
+    else:
+        weather = {"message": "No location data available."}
+
+    return render_template('showweather.html', weather=weather)
+
+
 if __name__ == '__main__':
     app.run(debug=True, port=5500, host='0.0.0.0')
