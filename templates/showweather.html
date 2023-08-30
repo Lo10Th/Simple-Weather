@@ -26,7 +26,7 @@
                         var weatherText = data.weather;
                         var weatherTextElement = document.getElementById("weatherText");
         
-                        if (weatherText == "true") {
+                        if (weatherText === true) {
                             document.body.style.backgroundColor = "darkblue";
                             weatherTextElement.innerText = "";
                         } else {

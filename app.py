@@ -36,7 +36,6 @@ def onehour():
 
     return render_template('showweather.html', weather=weather)
 
-#do the same for 2 hours
 @app.route('/2', methods=['POST', 'GET'])
 def twohours():
     global latitude, longitude
@@ -62,7 +61,6 @@ def twohours():
 
     return render_template('showweather.html', weather=weather)
 
-#do the same for 3 hours
 @app.route('/3', methods=['POST', 'GET'])
 def threehours():
     global latitude, longitude
@@ -88,7 +86,6 @@ def threehours():
 
     return render_template('showweather.html', weather=weather)
 
-#do the same for 4 hours
 @app.route('/4', methods=['POST', 'GET'])
 def fourhours():
     global latitude, longitude
