@@ -2,3 +2,14 @@
     display: grid;
     place-items: center;
 }
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    .btn-margin {
+        margin-top: 10px;
+    }
+}
