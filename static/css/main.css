@@ -1,0 +1,21 @@
+.container {
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    .btn-margin {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-block {
+        width: 100%;
+    }
+}
