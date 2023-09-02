@@ -3,6 +3,11 @@
     place-items: center;
 }
 
+.btn-margin {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 @media (max-width: 768px) {
     .navbar {
         background-color: #f8f9fa;
@@ -11,6 +16,7 @@
 
     .btn-margin {
         margin-top: 10px;
+        margin-left: 10px;
     }
 }
 
