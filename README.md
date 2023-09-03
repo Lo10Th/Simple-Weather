@@ -89,3 +89,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Feel free to customize this README to better suit your project's specific needs.
+
+### Contact
+If you want to you can contact me at my Email Adress: wick11126@gmail.com
